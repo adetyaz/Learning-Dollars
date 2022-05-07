@@ -40,6 +40,37 @@ Write a function which takes an input array of N items and returns the smallest 
 of tables that you would visit in sequence to grab the most number of distinct gifts.
 */
 
-const numbers = [3, 5, 3, 2, 1, 3, 4, 2]
+const numbers = [1, 3, 1, 2, 1, 4, 3, 1]
 
-console.log(...new Set(numbers))
+const getTableMoves = (numOfTables) => {
+	const giftItems = {}
+
+	for (const table of numOfTables) {
+		if (!giftItems[table]) {
+			giftItems[table] = true
+		}
+	}
+
+	let noOfMoves = 0
+
+	for (const table of numOfTables) {
+		if (giftItems[table - 1]) continue
+
+		let tablesLength = 1
+		let i = 1
+
+		while (giftItems[table + 1]) {
+			tablesLength++
+			i++
+		}
+
+		noOfMoves = Math.max(noOfMoves, tablesLength)
+	}
+
+	return noOfMoves
+}
+
+const movesMade = getTableMoves(numbers)
+console.log(
+	'The number of moves made to get the most distinct items is ' + movesMade
+)
