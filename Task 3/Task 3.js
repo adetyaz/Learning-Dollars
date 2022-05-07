@@ -59,7 +59,7 @@ const getTableMoves = (numOfTables) => {
 		let tablesLength = 1
 		let i = 1
 
-		while (giftItems[table + 1]) {
+		while (giftItems[table + i]) {
 			tablesLength++
 			i++
 		}
