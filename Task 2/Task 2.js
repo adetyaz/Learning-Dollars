@@ -8,7 +8,7 @@ const getNumbersPresent = () => {
 
 	let reader = new FileReader()
 	reader.addEventListener('loadend', () => {
-		let matches = reader.result.match(/\d+/g)
+		let matches = reader.result.match(/-?\d+/g)
 		document.getElementById('fileNumbers').innerHTML = matches
 		console.log(matches)
 	})

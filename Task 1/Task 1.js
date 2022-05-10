@@ -3,13 +3,32 @@
  then there is no mode for the list
 */
 
-const mode = {}
 const List1 = [1, 5, 2, 6, 2, 3, 3, 2, 8, 2]
 const List2 = [500, -100, 200, 50, -100, 300, 50, 700, 50, -100, 500]
+const List3 = [1, 2, 3, 4, 5, 6, 7]
 
-const getModes = (number) => {
-	mode[number] = ++mode[number] || 1
+const getModes = (arr) => {
+	const mode = {}
+	const modes = []
+	const noModes = []
+	const getNumberModes = (number) => {
+		mode[number] = ++mode[number] || 1
+	}
+	arr.forEach(getNumberModes)
+
+	Object.keys(mode).forEach((num) => {
+		if (mode[num] > 1) modes.push(num)
+	})
+
+	Object.keys(mode).forEach((num) => {
+		if (mode[num] === 1) noModes.push(num)
+	})
+
+	if (noModes.length === arr.length) {
+		return null
+	} else {
+		return `"The mode is ${modes.length} and number(s) that have mode ${modes}`
+	}
 }
 
-List2.forEach(getModes)
-console.log(mode)
+console.log(getModes(List3))
