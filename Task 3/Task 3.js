@@ -41,6 +41,7 @@ of tables that you would visit in sequence to grab the most number of distinct g
 */
 
 const numbers = [1, 3, 1, 2, 1, 4, 3, 1]
+const numbers2 = [3, 5, 3, 2, 1, 3, 4, 2]
 
 const getTableMoves = (numOfTables) => {
 	const giftItems = {}

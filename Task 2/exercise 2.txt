@@ -1,0 +1,7 @@
+10
+-50
+Some more numbers follow
+3.1457
+12 00 47
+1.25E-7
+-20000

@@ -9,15 +9,17 @@ const List3 = [1, 2, 3, 4, 5, 6, 7]
 
 const getModes = (arr) => {
 	const mode = {}
-	const modes = []
 	const noModes = []
+	const modes = []
 	const getNumberModes = (number) => {
 		mode[number] = ++mode[number] || 1
 	}
 	arr.forEach(getNumberModes)
 
+	const max = Math.max(...Object.values(mode))
+
 	Object.keys(mode).forEach((num) => {
-		if (mode[num] > 1) modes.push(num)
+		if (mode[num] === max) modes.push(num)
 	})
 
 	Object.keys(mode).forEach((num) => {
@@ -27,7 +29,7 @@ const getModes = (arr) => {
 	if (noModes.length === arr.length) {
 		return null
 	} else {
-		return `"The mode is ${modes.length} and number(s) that have mode ${modes}`
+		return `The mode is ${modes} and it occurs ${max} times`
 	}
 }
 
